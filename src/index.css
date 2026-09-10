@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   SMARTBUY — Estilos globales
+   Dark mode elegante, acentos neón azul eléctrico, glassmorphism
+   ============================================================ */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-carbon text-white font-sans;
+  }
+  ::selection {
+    @apply bg-electric/40 text-white;
+  }
+  /* Scrollbar discreta */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1f2937;
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0066ff;
+  }
+}
+
+@layer components {
+  /* Glassmorphism sutil */
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+  /* Resplandor neón azul */
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(0, 102, 255, 0.45), 0 0 60px rgba(0, 102, 255, 0.15);
+  }
+  .glow-green {
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.4), 0 0 60px rgba(37, 211, 102, 0.12);
+  }
+  .text-glow {
+    text-shadow: 0 0 24px rgba(0, 102, 255, 0.6);
+  }
+  /* Retícula de fondo del hero */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+  /* Animación de aparición por scroll (Intersection Observer) */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  .reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* Hover 3D sutil en tarjetas */
+  .card-3d {
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .card-3d:hover {
+    transform: perspective(900px) rotateX(2deg) rotateY(-2deg) translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0, 102, 255, 0.18);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+  .card-3d:hover {
+    transform: none;
+  }
+}
+
+
+/* ******************* para la galeria de imagenes ********************** */
+
+@keyframes slide-right {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-left {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-slide-right { animation: slide-right 0.3s ease-out; }
+.animate-slide-left { animation: slide-left 0.3s ease-out; }

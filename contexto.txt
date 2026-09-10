@@ -1,0 +1,126 @@
+content = """SMARTBUY - CONTEXTO DEL PROYECTO
+=====================================
+
+RESUMEN EJECUTIVO
+-----------------
+SmartBuy es una tienda e-commerce frontend de tecnologia wearable y moda urbana, 
+construida con React 18 + TypeScript + Vite + Tailwind CSS. 
+Es una SPA (Single Page Application) 100% del lado del cliente sin backend, 
+desplegada en Vercel.
+
+
+STACK TECNOLOGICO
+-----------------
+| Capa          | Tecnologia                    |
+|---------------|-------------------------------|
+| Framework     | React 18 con TypeScript       |
+| Build Tool    | Vite                          |
+| Estilos       | Tailwind CSS + glassmorphism  |
+| Routing       | React Router DOM (HashRouter) |
+| Estado        | Context API                   |
+| Iconos        | Lucide React                  |
+| Deploy        | Vercel                        |
+
+
+ESTRUCTURA DE CARPETAS
+----------------------
+src/
+  components/          # Componentes reutilizables
+    Navbar.tsx         # Navegacion fija con carrito
+    Hero.tsx           # Seccion principal del Home
+    Catalog.tsx        # Grid de productos con filtros
+    ProductCard.tsx    # Tarjeta individual de producto
+    CartDrawer.tsx     # Carrito lateral deslizable
+    Footer.tsx         # Pie de pagina
+    WhatsAppFloat.tsx  # Boton flotante de WhatsApp
+    ImageGallery.tsx   # Galeria lightbox con swipe
+  pages/               # Vistas principales
+    Home.tsx           # Pagina principal (Hero + Catalog)
+    CatalogPage.tsx    # Pagina dedicada del catalogo
+    ProductDetail.tsx  # Detalle de producto
+    Admin.tsx          # Panel de administracion
+  context/             # Estado global
+    CatalogContext.tsx # Gestion de productos + localStorage
+    CartContext.tsx    # Gestion del carrito de compras
+  data/
+    products.ts        # Catalogo base (unico archivo a editar)
+  hooks/
+    useReveal.ts       # Animaciones de aparicion al scroll
+
+
+FUNCIONALIDADES IMPLEMENTADAS
+-----------------------------
+
+1. SISTEMA DE NAVEGACION
+   - HashRouter para compatibilidad con hosting estatico
+   - Rutas: / (Home), /catalogo, /producto/:id, /admin
+   - Navegacion con estado (location.state) para controlar el flujo de "volver"
+
+2. CATALOGO DE PRODUCTOS
+   - 10 productos iniciales en 3 categorias: Wearables, Moda Urbana, Accesorios
+   - Filtros por categoria + buscador en tiempo real
+   - Grid asimetrico tipo editorial (tarjetas "tall" intercaladas)
+   - Datos persistidos en localStorage (ediciones del admin sobreviven recargas)
+
+3. GALERIA DE IMAGENES
+   - Lightbox a pantalla completa
+   - Navegacion: flechas, teclado (<- ->), thumbnails, swipe tactil con desplazamiento visual
+   - Efecto elastico en bordes (resistencia al llegar al inicio/fin)
+   - Preview de imagen adyacente mientras arrastras
+
+4. CARRITO DE COMPRAS
+   - Drawer lateral con glassmorphism
+   - Agregar/quitar productos, cantidades
+   - Persistencia en estado global (CartContext)
+
+5. INTEGRACION WHATSAPP
+   - Boton flotante global
+   - Consulta directa por producto con mensaje pre-formateado
+   - Numero configurado en products.ts
+
+6. PANEL DE ADMINISTRACION (/admin)
+   - CRUD de productos (crear, editar, eliminar)
+   - Los cambios se guardan en localStorage (no afectan el archivo base)
+   - Boton para restaurar catalogo original
+
+
+PROBLEMAS RESUELTOS
+-------------------
+| Problema                                      | Solucion                                              |
+|-----------------------------------------------|-------------------------------------------------------|
+| Pantalla negra en /#/catalogo                 | Crear CatalogPage.tsx y agregar ruta en App.tsx       |
+| Error de JSX en Navbar                        | Cambiar <a> por <Link> con import correcto            |
+| PowerShell bloqueaba vercel                   | Usar CMD en lugar de PowerShell                       |
+| Boton "volver" ciclaba entre productos        | Usar location.state para detectar origen              |
+| Tarjetas vacias tras cambios                  | Valor por defecto from='catalog' en ProductCard       |
+
+
+ARCHIVOS CLAVE PARA MANTENIMIENTO
+-----------------------------------
+| Archivo                       | Proposito                                           |
+|-------------------------------|-----------------------------------------------------|
+| src/data/products.ts          | UNICO archivo para editar el catalogo               |
+| src/context/CatalogContext.tsx| Logica de persistencia y override del catalogo      |
+| public/products/              | Carpeta para imagenes de productos                  |
+| tailwind.config.js            | Colores custom: carbon, electric, whatsapp          |
+
+
+PROXIMOS PASOS SUGERIDOS
+------------------------
+1. Multiples imagenes por producto: Ya esta el campo images[] en la interfaz
+2. Animacion de transicion entre paginas (Framer Motion)
+3. Busqueda con debounce para optimizar rendimiento
+4. Modo oscuro/claro (aunque el tema actual es oscuro por defecto)
+
+
+CONFIGURACION ACTUAL
+--------------------
+- Numero WhatsApp: 50378195474 (El Salvador)
+- Puerto dev: 3000 (localhost:3000)
+- Fecha ultima actualizacion: 2026-09-10
+"""
+
+with open('/mnt/agents/output/SmartBuy_Contexto.txt', 'w', encoding='utf-8') as f:
+    f.write(content)
+
+print("Archivo creado exitosamente")
