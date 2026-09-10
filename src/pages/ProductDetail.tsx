@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+//import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate, useLocation } from 'react-router';
 import { ArrowLeft, Minus, Plus, ShoppingBag, MessageCircle, ZoomIn } from 'lucide-react';
 import { useCatalog } from '@/context/CatalogContext';
@@ -6,6 +6,7 @@ import { useCart } from '@/context/CartContext';
 import { WHATSAPP_NUMBER } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 import ImageGallery from '@/components/ImageGallery';
+import { useState } from 'react';
 
 export default function ProductDetail() {
   const { id } = useParams<{ id: string }>();

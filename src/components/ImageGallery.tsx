@@ -11,7 +11,8 @@ interface Props {
 /** Galería lightbox con navegación por teclado, flechas, thumbnails y swipe táctil con desplazamiento visual */
 export default function ImageGallery({ images, productName, badge, onClose }: Props) {
   const [current, setCurrent] = useState(0);
-  const [direction, setDirection] = useState<'left' | 'right'>('right');
+ // const [direction, setDirection] = useState<'left' | 'right'>('right');
+  const [, setDirection] = useState<'left' | 'right'>('right');
   
   // ===== DESPLAZAMIENTO VISUAL =====
   const [dragOffset, setDragOffset] = useState(0); // Offset en píxeles durante el arrastre
@@ -86,9 +87,11 @@ export default function ImageGallery({ images, productName, badge, onClose }: Pr
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
 
+    
     // Animación de salida según dirección
     if (isLeftSwipe && current < images.length - 1) {
-      setDragOffset(-containerRef.current?.offsetWidth || -300);
+     // setDragOffset(-containerRef.current?.offsetWidth || -300);
+      setDragOffset(-(containerRef.current?.offsetWidth ?? 300));
       setTimeout(() => {
         next();
         setDragOffset(0);
