@@ -26,7 +26,7 @@ export interface Product {
   name: string;
   price: number;
   description: string;
-  category: 'Wearables' | 'Moda Urbana' | 'Accesorios';
+  category: 'Hogar' | 'Regalos' | 'Accesorios' | 'Herramientas';
   badge: 'Nuevo' | 'Trending' | null;
   image: string;
   images?: string[];    // Galería completa (opcional)
@@ -52,7 +52,7 @@ export const PRODUCTS: Product[] = [
     name: 'Caja de Herramientas',
     price: 10.00,
     description: 'caja de herramientas...',
-    category: 'herramientas',
+    category: 'Herramientas',
     badge: 'Trending',
     image: '/products/caja de 16.jpeg',
     images: [
@@ -94,7 +94,7 @@ export const PRODUCTS: Product[] = [
     name: 'Smartwatch Pulse S',
     price: 119.99,
     description: 'Pantalla AMOLED borde a borde, monitoreo de salud 24/7 y 14 días de batería.',
-    category: 'Wearables',
+    category: 'Regalos',
     badge: 'Trending',
     image: '/products/smartwatch.jpg',
     images: [
@@ -108,7 +108,7 @@ export const PRODUCTS: Product[] = [
     name: 'Gorra Holo Street',
     price: 39.99,
     description: 'Gorra urbana premium con parche holográfico que cambia de color según el ángulo de luz.',
-    category: 'Moda Urbana',
+    category: 'Regalos',
     badge: null,
     image: '/products/holo-cap.jpg',
     images: [
@@ -122,7 +122,7 @@ export const PRODUCTS: Product[] = [
     name: 'Earbuds Neon Air',
     price: 69.99,
     description: 'Cancelación de ruido activa, aro LED personalizable y 30 horas de reproducción total.',
-    category: 'Wearables',
+    category: 'Regalos',
     badge: 'Nuevo',
     image: '/products/led-earbuds.jpg',
     images: [
@@ -136,7 +136,7 @@ export const PRODUCTS: Product[] = [
     name: 'Smart Ring Orbit',
     price: 79.99,
     description: 'Anillo de titanio con sensores de sueño, ritmo cardíaco y pagos sin contacto NFC.',
-    category: 'Wearables',
+    category: 'Regalos',
     badge: 'Nuevo',
     image: '/products/smart-ring.jpg',
     images: [
@@ -150,7 +150,7 @@ export const PRODUCTS: Product[] = [
     name: 'Visor VR Nebula',
     price: 249.99,
     description: 'Realidad virtual ultraligera con visor panorámico y seguimiento ocular de precisión.',
-    category: 'Wearables',
+    category: 'Regalos',
     badge: null,
     image: '/products/vr-headset.jpg',
     images: [
@@ -164,7 +164,7 @@ export const PRODUCTS: Product[] = [
     name: 'Hoodie Cyber Circuit',
     price: 74.99,
     description: 'Hoodie oversize con estampado reflectivo de circuitos que brilla bajo luz UV.',
-    category: 'Moda Urbana',
+    category: 'Regalos',
     badge: 'Trending',
     image: '/products/cyber-hoodie.jpg',
     images: [

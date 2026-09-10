@@ -15,10 +15,14 @@ import {
 import { useCatalog } from '@/context/CatalogContext';
 import type { Product } from '@/data/products';
 
+import { CATEGORIES } from '../data/products';
+
 /** PIN de acceso al panel — cámbialo aquí */
 const ADMIN_PIN = '1234';
 
-const CATEGORY_OPTIONS: Product['category'][] = ['Wearables', 'Moda Urbana', 'Accesorios'];
+//const CATEGORY_OPTIONS: Product['category'][] = ['Wearables', 'Moda Urbana', 'Accesorios'];
+
+const CATEGORY_OPTIONS = CATEGORIES.filter(c => c !== 'Todos');
 
 /** Formulario vacío para producto nuevo */
 const emptyForm = {
