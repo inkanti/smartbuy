@@ -6,7 +6,9 @@ import { useCart } from '@/context/CartContext';
 import { WHATSAPP_NUMBER } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 import ImageGallery from '@/components/ImageGallery';
-import { useState } from 'react';
+//import { useState } from 'react';
+import { useState, useEffect } from 'react';  // ← Agrega useEffect
+
 
 export default function ProductDetail() {
   const { id } = useParams<{ id: string }>();
@@ -16,6 +18,12 @@ export default function ProductDetail() {
   const { addItem } = useCart();
   const [qty, setQty] = useState(1);
   const [showGallery, setShowGallery] = useState(false);
+
+  // ← NUEVO: Scroll al inicio al cargar el producto
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [id]);  // Se ejecuta cada vez que cambia el ID del producto
+
 
   const product = id ? getProduct(id) : undefined;
 
